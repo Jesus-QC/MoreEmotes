@@ -1,0 +1,89 @@
+/*
+* Vencord, a Discord client mod
+* Copyright (c) 2024 jesusqc
+* SPDX-License-Identifier: GPL-3.0-or-later
+*/
+
+.more-emotes-picker{
+    position: absolute;
+    max-width: 540px;
+    width: 100%;
+    height: 500px;
+    background-color: var(--bg-overlay-3, var(--channeltextarea-background));
+    z-index: 1000;
+    top: -510px;
+    right: 0;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+}
+
+.more-emotes-picker input{
+    margin: 20px;
+    border-radius: 6px;
+    border: none;
+    height: 40px;
+    width: auto;
+    background-color: var(--background-tertiary);
+}
+
+.more-emotes-search{
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+}
+
+.more-emotes-search div{
+    width: 100%;
+}
+
+.more-emotes-search svg{
+    margin-left: 25px;
+    margin-right: 5px;
+    cursor: pointer;
+    fill: var(--interactive-normal);
+}
+
+.more-emotes-list{
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 10px;
+    justify-items: center;
+    padding: 20px;
+    padding-top: 0;
+    overflow-y: scroll;
+    scrollbar-width: none;
+}
+
+.more-emotes-list div{
+    padding: 5px;
+    border-radius: 6px;
+    background-color: var(--background-tertiary);
+    width: 75px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    gap: 10px;
+    color: var(--text-normal);
+    font-weight: 600;
+    font-size: small;
+}
+
+.more-emotes-list div:hover{
+    background-color: var(--background-secondary-alt);
+}
+
+.more-emotes-list img{
+    width: 50px;
+    height: 50px;
+    object-fit: contain;
+}
+
+.more-emotes-list span{
+    width: 100%;
+    word-break: break-all;
+    text-align: center;
+}
