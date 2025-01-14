@@ -89,6 +89,16 @@ export const MoreEmotesPicker = ({ children, chatInputType }) => {
         };
     }, []);
 
+    const handleButtonClick = (emote: EmoteItem) => {
+        const channelId = getCurrentChannel()?.id;
+        if (channelId) {
+            sendMessage(channelId, {
+                content: formatEmote(emote.id),
+            });
+        }
+        emotePickerHook.setShowPicker(false);
+    };
+
     return (
         <>
             {chatInputType.analyticsName === "normal" && emotePickerHook.showPicker && (
@@ -107,15 +117,7 @@ export const MoreEmotesPicker = ({ children, chatInputType }) => {
                         {emotes.map((emote) => (
                             <div
                                 key={emote.id}
-                                onClick={() => {
-                                    const channelId = getCurrentChannel()?.id;
-                                    if (channelId) {
-                                        sendMessage(channelId, {
-                                            content: formatEmote(emote.id),
-                                        });
-                                    }
-                                    emotePickerHook.setShowPicker(false);
-                                }}
+                                onClick={() => handleButtonClick(emote)}
                             >
                                 <img src={formatEmote(emote.id)} alt={emote.defaultName} />
                                 <span>{emote.defaultName}</span>
