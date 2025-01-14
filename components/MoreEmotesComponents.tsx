@@ -40,7 +40,7 @@ export const MoreEmotesButton: ChatBarButton = ({ isMainChat }) => {
             emotePickerHook.setShowPicker(!emotePickerHook.showPicker);
         }}>
             <SevenTvIcon />
-        </ChatBarButton>;
+        </ChatBarButton>
     </>;
 };
 
