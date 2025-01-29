@@ -8,7 +8,7 @@ import "./style.css";
 
 import definePlugin from "@utils/types";
 import { addChatBarButton, removeChatBarButton } from "@api/ChatButtons";
-import { addPreSendListener, removePreSendListener } from "@api/MessageEvents";
+import { addMessagePreSendListener, removeMessagePreSendListener } from "@api/MessageEvents";
 import { MoreEmotesButton, MoreEmotesPicker } from "./components/MoreEmotesComponents";
 import { emoteSearchReplacer } from "./api/seventv";
 
@@ -36,7 +36,7 @@ export default definePlugin({
     start() {
         addChatBarButton("MoreEmotes", MoreEmotesButton);
         /* We convert to an emote any message that goes like :+EMOTE NAME: */
-        this.preSend = addPreSendListener(async (_, msg) => {
+        this.preSend = addMessagePreSendListener(async (_, msg) => {
             if (!msg.content || !msg.content.startsWith(":+") || !msg.content.endsWith(":"))
                 return;
 
@@ -46,7 +46,7 @@ export default definePlugin({
 
     stop() {
         removeChatBarButton("MoreEmotes");
-        removePreSendListener(this.preSend);
+        removeMessagePreSendListener(this.preSend);
     },
 
     MoreEmotesPicker
